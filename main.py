@@ -1,11 +1,5 @@
-from bottle import Bottle, run
+from nicegui import ui
 
-app = Bottle()
+ui.label('Hello NiceGUI!')
 
-@app.route('/hello')
-def hello():
-    return "Hello World!"
-
-run(app, host='localhost', port=8080)
-# run the program, then go to the link:
-# http://localhost:8080/hello
+ui.run()
