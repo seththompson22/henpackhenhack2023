@@ -6,7 +6,7 @@ app = Bottle()
 def hello():
     return "Hello World!"
 
-@error(404)
+@app.error(404)
 def error404(error):
     return 'Nothing here, sorry'
 
