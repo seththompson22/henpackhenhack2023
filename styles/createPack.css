@@ -12,6 +12,8 @@ body {
     margin-left: 10%;
     border-radius: 30px;
     height: 80vh;
+    align-items: center;
+    text-align: center;
 }
 
 .title {
@@ -31,25 +33,121 @@ h1{
 .container-group {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    background-color: blue;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     padding: 100px 50px;
 }
 
 #container, #containerB {
-    color: white;
+    color: black;
     flex-basis: 48%;
     width: 50%;
+    padding: 10px;
+    font-size: 1rem;
+    height: 20vh;
+}
+
+#container {
+    padding: 0 0 0 -10px;
+    text-align: center;
+    align-items: center;
+    width: 25%;
+}
+
+#container > button {
+    background-color: rgb(40, 36, 158);
+    border: none;
+    color: white;
+    padding: 9px;
+    margin: 10px 0px;
+    margin-bottom: 9px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+}
+
+#container > button:hover  {
+    background-color: rgb(71, 67, 165);
+    box-shadow: 0px 0px 4px black;
+}
+
+#container > input {
+    margin: 10px 0px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+#containerB {
+    padding: 0 0 0 -10px;
+    text-align: center;
+    align-items: center;
+}
+
+#containerB > button {
+    background-color: rgb(40, 36, 158);
+    border: none;
+    color: white;
+    padding: 9px;
+    margin: 10px 0px;
+    margin-bottom: 9px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+}
+
+#containerB > button:hover  {
+    background-color: rgb(71, 67, 165);
+    box-shadow: 0px 0px 4px black;
+}
+
+#containerB > input {
+    margin: 10px 0px;
+    padding: 7px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+#containerb > .email-list {
+    text-decoration: none;
+    text-align: left;
+    background-color: orange;
+}
+
+#containerb > .email-list > .emailListItem {
+    text-decoration: none;
+    text-align: left;
 }
 
 #emailListItem {
     text-decoration: none;
 }
 
-#buttonContainer{
-    background-color: gray;
-    display: flex;
-    justify-content: center;
-    padding: 100px 50px;
-    
+#buttonContainer > button{
+    background-color: rgb(40, 36, 158);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
 }
