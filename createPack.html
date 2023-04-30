@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Create Group</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="styles/createPack.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+
+	<title>Create Your Hen Pack</title>
 </head>
 <body>
-	<h1>Create Group</h1>
-	<label for="email">Email:</label>
-	<input type="email" id="email" name="email">
-	<button type="button" onclick="addEmail()">Add Email</button>
-	<div id="group"></div>
-	<label for="group-name">Group Name:</label>
-	<input type="text" id="group-name" name="group-name">
-	<button type="button" onclick="createGroup()">Create Group</button>
-    <button type="button" onclick="directGroup()">Find your Times!</button>
+	<h1>Create Your Hen Pack</h1>
+    <div class="container-group">
+        <div id="container">
+            <label for="group-name">Group Name:</label>
+            <input type="text" id="group-name" name="group-name">
+            <button type="button" onclick="createGroup()">Create Pack</button>
+        </div>
+        <div id="containerB">
+            <label for="email">Enter email:</label>
+            <input type="email" id="email" name="email">
+            <button type="button" onclick="addEmail()">Add Email</button>
+        </div>
+    </div>
+    <div id="buttonContainer">
+        <button type="button" onclick="directGroup()">Find your Times!</button>
+    </div>
 
 	<script>
 		// Define an array to store the emails
@@ -22,9 +38,14 @@
 		function addEmail() {
 			var email = document.getElementById("email").value;
 			if (validateEmail(email)) {
-				emails.push(email);
-				document.getElementById("email").value = "";
-				updateGroup();
+                if (!emails.includes(email)){
+				    emails.push(email);
+				    document.getElementById("email").value = "";
+				    updateGroup();
+                }
+                else {
+                    alert("Email already Entered")
+                }
 			} else {
 				alert("Please enter a valid email address.");
 			}
@@ -57,16 +78,20 @@
 		}
 
 		// Function to update the group display
-		function updateGroup() {
-			var groupList = document.createElement("ul");
-			for (var i = 0; i < emails.length; i++) {
-				var emailListItem = document.createElement("li");
-				emailListItem.textContent = emails[i];
-				groupList.appendChild(emailListItem);
-			}
-			document.getElementById("group").innerHTML = "";
-			document.getElementById("group").appendChild(groupList);
-		}
+        function updateGroup() {
+            var groupList = document.createElement("ul");
+            var uniqueEmails = [];
+            for (var i = 0; i < emails.length; i++) {
+                if (!uniqueEmails.includes(emails[i])) {
+                    uniqueEmails.push(emails[i]);
+                    var emailListItem = document.createElement("li");
+                    emailListItem.textContent = emails[i];
+                    groupList.appendChild(emailListItem);
+                }
+            }
+            var emailContainer = document.getElementById("containerB");
+            emailContainer.appendChild(groupList);
+        }
 
         function directGroup(emails){
             window.location.href = "https://www.henhackshackathon.com/home";

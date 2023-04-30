@@ -1,0 +1,25 @@
+body {
+    width: auto;
+    font-family: 'Inter', sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+
+.container-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+#container, #containerB {
+    flex-basis: 48%;
+}
+#buttonContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    padding: 100px 50px;
+    
+}
