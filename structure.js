@@ -22,22 +22,23 @@
  // Function to create the group
  function createGroup() {
      var groupName = document.getElementById("group-name").value;
-     if (groupName === "") {
+     if ((groupName != "") && (emails.length > 1)) {
+        var h2 = document.createElement("h2");
+        var t = document.createTextNode("Name: " + groupName);
+        h2.appendChild(t);
+        document.body.appendChild(h2);
+    }
+    else if ((groupName != "") && (emails.length === 1)){
+        var h2 = document.createElement("h2");
+        var t = document.createTextNode("Name: " + groupName);
+        h2.appendChild(t);
+        document.body.appendChild(h2);
+    }
+    else if (groupName === "") {
          alert("Please enter a group name.");
-     } else if (emails.length === 0) {
+     } 
+    else if (emails.length === 0) {
          alert("Please add at least one email to the group.");
-     } else {
-         var groupList = document.createElement("ul");
-         groupList.setAttribute('id','email-list');
-         for (var i = 0; i < emails.length; i++) {
-             var emailListItem = document.createElement("li");
-             emailListItem.textContent = emails[i];
-             emailListItem.setAttribute('id','emailListItem');
-             groupList.appendChild(emailListItem);
-         }
-         document.getElementById("group").innerHTML = "";
-         document.getElementById("group").appendChild(groupList);
-         alert("Group \"" + groupName + "\" created with " + emails.length + " members.");
      }
  }
 
