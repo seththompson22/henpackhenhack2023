@@ -1,0 +1,29 @@
+body {
+    background-color: #76b5c5;
+    text-align: center;
+    width: auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 50px;
+    color: white;
+    left: 0;
+    position: absolute;
+    top: 15%;
+    width: 100%;
+}
+
+button {
+    background-color: rgb(40, 36, 158);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1px;
+}
