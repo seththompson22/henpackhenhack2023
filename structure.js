@@ -77,84 +77,158 @@
  }
  
 
- function directGroup(emails){
+ function directGroup(){
      window.location.href = "https://seththompson22.github.io/henpackhenhack2023/update_schedule.html";
  }
 
- function updateTime() {
-    var start_char = document.getElementById("select-start-day");
-    var start_hour = document.getElementById("start_hour");
-    var start_minute = document.getElementById("start-minute");
-    var start_is_morning = document.getElementById("select-AM-PM");
-    var end_char = document.getElementById("select-end-day");
-    var end_hour = document.getElementById("end_hout");
-    var end_minute = document.getElementById("end-minute");
-    var end_is_morning = document.getElementById("select-AM-PM2");
-}
-
 
 class Group {
-    constructor(name, emails) {
+    constructor(name, emails, open_schedule) {
         this.name = name;
         this.emails = emails;
+        this.open_schedule = open_schedule;
+
     }
  }
 class Event {
-    constructor(){
+    constructor(start, end){
         this.start = start;
         this.end = end;
     }
  }
 
 class TimeData {
-    constructor(day_char, hour, minute, is_morning){
+    constructor(day_char, hour, minute){
         this.day_char = day_char;
         this.hour = hour;
         this.minute = minute;
-        this.is_morning = is_morning;
     }
+}
+
+
+ function updateTime() {
+    var start_char = document.getElementById("select-start-day").value;
+    var start_hour = document.getElementById("start_hour").value;
+    var start_minute = document.getElementById("start-minute").value;
+    var end_char = document.getElementById("select-end-day").value;
+    var end_hour = document.getElementById("end_hour").value;
+    var end_minute = document.getElementById("end-minute").value;
+
+    // main code:
+    // week_order = ["M", "T", "W", "R", "F", "S", "U"];
+    const monday_availability = new Array(new Event(TimeData('M',0,0), TimeData('M',23,59)));
+    const tuesday_availability = new Array(new Event(TimeData('T',0,0), TimeData('T',23,59)));
+    const wednesday_availability = new Array(new Event(TimeData('W',0,0), TimeData('W',23,59)));
+    const thursday_availability = new Array(new Event(TimeData('R',0,0), TimeData('R',23,59)));
+    const friday_availability = new Array(new Event(TimeData('F',0,0), TimeData('F',23,59,)));
+    const saturday_availability = new Array(new Event(TimeData('S',0,0), TimeData('S',23,59)));
+    const sunday_availability = new Array(new Event(TimeData('U',0,0), TimeData('U',23,59,)));
+    weekly_available = [monday_availability, tuesday_availability, wednesday_availability, thursday_availability, friday_availability, saturday_availability, sunday_availability];
+    group = new Group(groupName, emails, weekly_available);
+
+    var defaultMonday = new Event(TimeData('M',0,0), TimeData('M',23,59));
+
+    for (var i = 0; i < monday_availability.length; i++) {
+        if (start_char == 'M' && end_char == 'M') {
+            if (defaultMonday.start.hour <= start_hour && start_hour <= defaultMonday.end.hour) {
+                if (defaultMonday.start.hour <= end_hour && end_hour <= defaultMonday.end.hour) {
+                    if (defaultMonday.start.minute <= start_minute && start_minute <= defaultMonday.end.minute) {
+                        if (defaultMonday.start.minute <= end_minute && end_minute <= defaultMonday.end.minute) {
+                            monday_availability.push(defaultMonday);
+                            var temp = new TimeData('M',defaultMonday.end.hour, defaultMonday.end.minute);
+                            defaultMonday.end.hour = start_hour;
+                            defaultMonday.end.minute = start_minute;
+                            start_hour = temp.hour;
+                            start_minute = temp.minute;
+                            
+                        } else {
+                            alert("End Time Minutes should be between 0 and 59");
+                        }
+                    } else {
+                        alert("Start Time Minutes should be between 0 and 59");
+                    }
+                } else {
+                    alert("End Time Hours should be between 0 and 23");
+                }
+            } else {
+                alert("Start Time Hours should be between 0 and 23");
+            }
+        }
+    }
+    var formatted_times = function() {
+        var list_of_times = new Array();
+        list_of_times.push(defaultMonday.start.day_char + " " + defaultMonday.start.hour + ":" + defaultMonday.start.minute + " - " + defaultMonday.end.day_char + " " + defaultMonday.end.hour + ":" + defaultMonday.end.minute);
+        list_of_times.push(start_char + " " + start_hour + ":" + start_minute + " - " + end_char + " " + end_hour + ":" + end_minute);
+    
+        return list_of_times;
+        
+    }
+    alert("Times Available: " + formatted_times);
+    
+    // for (var i = 0; i < weekly_available.length; i++) {
+    //     for (var j = 0; j < weekly_available[i].length; j++) {
+    //         alert(weekly_available[i][j].start.hour + ": " + weekly_available[i][j].start.minute + " - " + weekly_available[i][j].end.hour + ": " + weekly_available[i][j]
+    //         .end.minute);
+    //     }
+    // }    
+
+    // get user input and store it as an event
+    // var new_time = new Event(new TimeData(start_char, start_hour, start_minute), new TimeData(end_char, end_hour, end_minute));
+    // edit data
+
  }
 
-// main code:
-week_order = ["M", "T", "W", "R", "F", "S", "U"];
-const monday_availability = new Array(new Event(TimeData('M',0,0,true), TimeData('M',23,59,false)));
-const tuesday_availability = new Array(new Event(TimeData('T',0,0,true), TimeData('T',23,59,false)));
-const wednesday_availability = new Array(new Event(TimeData('W',0,0,true), TimeData('W',23,59,false)));
-const thursday_availability = new Array(new Event(TimeData('R',0,0,true), TimeData('R',23,59,false)));
-const friday_availability = new Array(new Event(TimeData('F',0,0,true), TimeData('F',23,59,false)));
-const saturday_availability = new Array(new Event(TimeData('S',0,0,true), TimeData('S',23,59,false)));
-const sunday_availability = new Array(new Event(TimeData('U',0,0,true), TimeData('U',23,59,false)));
-weekly_available = [monday_availability, tuesday_availability, wednesday_availability, thursday_availability, friday_availability, saturday_availability, sunday_availability];
-group = new Group(groupName, emails, weekly_available);
+
+//  function displayAvailableTimes(times) {
+    
+//     alert(weekly_available[0][j].start.hour + ": " + times[j].start.minute + " - " + times[j].end.hour + ": " + times[j].end.minute);
+//     var groupList = document.getElementById("row-1");
+//      var newTimes = [];
+
+//      // Remove previous ul element
+//      var previousList = document.getElementById("row-1").getElementById("M");
+//      if (previousList) {
+//          previousList.remove();
+//      }
+
+//      for (var j = 0; j < times.length; j++) {
+//          if (!newTimes.includes(times[j])) {
+//             var oneRange = times[j].start.hour + ": " + times[j].start.minute + " - " + times[j].end.hour + ": " + times[j].end.minute;
+//             newTimes.push(oneRange);
+//             var timeItem = document.createElement("label");
+//             timeItem.textContent = oneRange;
+//             timeItem.setAttribute('id', 'timeItem');
+//             groupList.appendChild(timeItem);
+//          }
+//      }
+//  }
+
+//  table.getCellTextAt = function(rowIndex, colIndex) {
+//     return this.find('tr:eq(' + rowIndex + ') t' + (rowIndex == 0 ?  "h" : "d") + ':eq(' + colIndex + ')').text(); 
+//  };
+ 
+//  table.getCellContentsAt = function(rowIndex, colIndex) {
+//     return this.find('tr:eq(' + rowIndex + ') t' + (rowIndex == 0 ?  "h" : "d") + ':eq(' + colIndex + ')').html(); 
+//  };
+
+//  table.setCellContentsAt = function(rowIndex, colIndex, newContents) {
+//     this.find('tr:eq(' + rowIndex + ') t' + (rowIndex == 0 ?  "h" : "d") 
+//               + ':eq(' + colIndex + ')').html('').append(newContents);
+//  };
+ 
+//  table.setCellTextAt = function(rowIndex, colIndex, newText) {
+//     this.find('tr:eq(' + rowIndex + ') t' + (rowIndex == 0 ?  "h" : "d") 
+//               + ':eq(' + colIndex + ')').text(newText);
+//  };
 
 
-// get user input and store it as an event
-var new_time = new Event(new TimeData(start_char, start_hour, start_minute, start_is_morning), new TimeData(end_char, end_hour, end_minute, end_is_morning));
-// edit data
-if (!(new_time.start.day_char == new_time.end.day_char)) {
-    alert("The days of the week must be the same!");
-}
-if (!(new_time.start.is_morning)) {
-    new_time.start.hour += 12;
-}
-if (new_time.start.hour == 12 && new_time.start.minute == 0 && new_time.start.is_morning) {
-    if (new_time.start.day_char != "M") {
-        new_time.start.day_char = week_order[week_order.findIndex(new_time.start.day_char)+1];
-    } else {
-        new_time.start.day_char = "U";
-    }
-    new_time.start.hour = 0;
-    new_time.start.minute = 0;
-    new_time.start.is_morning = true;
-}
-if (new_time.end.hour == 0 && new_time.end.minute == 0 && new_time.end.is_morning) {
-    if (new_time.end.day_char != "M") {
-        new_time.end.day_char = week_order[week_order.findIndex(new_time.end.day_char)+1];
-    } else {
-        new_time.end.day_char = "U";
-    }
-    new_time.end.hour = 0;
-    new_time.end.minute = 0;
-    new_time.end.is_morning = true;
-}
+//  function updateChart(day_char) {
+//     var row1 = document.getElementById("row-1");
+//     var table1 = document.getElementsByTagName("table");
+//     if(row1.getElementById("M").id==day_char) {
+//         for (var i = 0; i < monday_availability.length; i++) {
+//             table1.setCellTextAt(0,0,times[j].start.hour + ": " + times[j].start.minute + " - " + times[j].end.hour + ": " + times[j].end.minute);
+//         }
+//     }
 
+//  }

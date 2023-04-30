@@ -69,7 +69,6 @@ h1{
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
-
     text-decoration: none;
 }
 
@@ -123,7 +122,6 @@ h1{
 #containerb > .email-list {
     text-decoration: none;
     text-align: left;
-    background-color: orange;
 }
 
 #containerb > .email-list > .emailListItem {
