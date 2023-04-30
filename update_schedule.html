@@ -53,7 +53,7 @@
                 <tr class="start-time-row">
                     <td>Start Time</td>
                     <td>
-                        <select name="select-day" id="select-day">
+                        <select name="select-day" id="select-start-day">
                             <option value=""></option>
                             <option value="Monday">Monday</option>
                             <option value="Tuesday">Tuesday</option>
@@ -65,10 +65,10 @@
                         </select>
                     </td>
                     <td>
-                        <input type="number" id="quantity" name="quantity" min="0" max="23">
+                        <input type="number" id="start_hour" name="quantity" min="0" max="23">
                     </td>
                     <td>
-                        <input type="number" id="quantity" name="quantity" min="0" max="59">
+                        <input type="number" id="start_minute" name="quantity" min="0" max="59">
                     </td>
                     <td>
                         <select name="select-AM-PM" id="select-AM-PM">
@@ -81,7 +81,7 @@
                 <tr class="end-time-row">
                     <td>End Time</td>
                     <td>
-                        <select name="select-day" id="select-day">
+                        <select name="select-day" id="select-end-day">
                             <option value=""></option>
                             <option value="Monday">Monday</option>
                             <option value="Tuesday">Tuesday</option>
@@ -93,13 +93,13 @@
                         </select>
                     </td>
                     <td>
-                        <input type="number" id="quantity" name="quantity" min="0" max="23">
+                        <input type="number" id="end_hour" name="quantity" min="0" max="23">
                     </td>
                     <td>
-                        <input type="number" id="quantity" name="quantity" min="0" max="59">
+                        <input type="number" id="end_minute" name="quantity" min="0" max="59">
                     </td>
                     <td>
-                        <select name="select-AM-PM" id="select-AM-PM">
+                        <select name="select-AM-PM" id="select-AM-PM2">
                             <option value=""></option>
                             <option value="AM">AM</option>
                             <option value="PM">PM</option>
@@ -107,8 +107,23 @@
                     </td>
                 </tr>
             </table>
+            <button id="submit-button" type="button" onclick="updateTime()">Update Times</button>
         </div>
     </div>
+    <script>
+        function updateTime() {
+            var start_char = document.getElementById("select-start-day");
+            var start_hour = document.getElementById("start_hour");
+            var start_minute = document.getElementById("start-minute");
+            var start_is_morning = document.getElementById("select-AM-PM");
+            var end_char = document.getElementById("select-end-day");
+            var end_hour = document.getElementById("end_hout");
+            var end_minute = document.getElementById("end-minute");
+            var end_is_morning = document.getElementById("select-AM-PM2");
+        }
+
+        export { start_char, start_hour, start_minute, start_is_morning, end_char, end_hour, end_minute, end_is_morning };
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
