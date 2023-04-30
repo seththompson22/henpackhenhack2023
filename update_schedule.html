@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/update_schedule.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
@@ -13,74 +13,106 @@
     <title>Update Schedule</title>
   </head>
   <body>
-    <h1 class="title">Update Schedule</h1>
-    <div class="available-times-container">
-        <h2>Available Times</h2>
-        <table>
-            <tr>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-                <th>Sunday</th>
-            </tr>
-            <tr>
-                <td>time</td>
-                <td>time</td>
-                <td>time</td>
-                <td>time</td>
-                <td>time</td>
-                <td>time</td>
-                <td>time</td>
-            </tr>
-        </table>
-    </div>
+    <div class="content">
+        <h1 class="title">Update Schedule</h1>
     
-    <div class="unavailable-times-container">
-        <h2>Add Unavailable Times</h2>
-        <table>
-            <tr>
-                <th>Weekday</th>
-                <th>Hour</th>
-                <th>Minute</th>
-                <th>AM/PM</th>
-
-            </tr>
-            <tr class="start-time-row">
-                <td>
-                    <select name="select-day" id="select-day">
-                        <option value=""></option>
-                        <option value="Monday">Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                    </select>
-                </td>
-                <td>
-                    <input type="number" id="quantity" name="quantity" min="1" max="12">
-                </td>
-                <td>
-                    <input type="number" id="quantity" name="quantity" min="0" max="59">
-                </td>
-                <td>am/pm</td>
-            </tr>
-            <tr class="end-time-row">
-                <td>weekday</td>
-                <td>hour</td>
-                <td>minute</td>
-                <td>am/pm</td>
-            </tr>
-        </table>
+        <div class="available-times-container">
+            <h2>Available Times</h2>
+            <table>
+                <tr>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>time</td>
+                    <td>time</td>
+                    <td>time</td>
+                    <td>time</td>
+                    <td>time</td>
+                    <td>time</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="unavailable-times-container">
+            <h2>Add Unavailable Times</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Weekday</th>
+                    <th>Hour</th>
+                    <th>Minute</th>
+                    <th>AM/PM</th>
+                </tr>
+                <tr class="start-time-row">
+                    <td>Start Time</td>
+                    <td>
+                        <select name="select-day" id="select-day">
+                            <option value=""></option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" id="quantity" name="quantity" min="1" max="12">
+                    </td>
+                    <td>
+                        <input type="number" id="quantity" name="quantity" min="0" max="59">
+                    </td>
+                    <td>
+                        <select name="select-AM-PM" id="select-AM-PM">
+                            <option value=""></option>
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="end-time-row">
+                    <td>End Time</td>
+                    <td>
+                        <select name="select-day" id="select-day">
+                            <option value=""></option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" id="quantity" name="quantity" min="1" max="12">
+                    </td>
+                    <td>
+                        <input type="number" id="quantity" name="quantity" min="0" max="59">
+                    </td>
+                    <td>
+                        <select name="select-AM-PM" id="select-AM-PM">
+                            <option value=""></option>
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
   </body>
 </html>

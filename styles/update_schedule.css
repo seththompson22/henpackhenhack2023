@@ -1,35 +1,51 @@
 body {
     width: auto;
+    font-size: 14px;
     font-family: 'Inter', sans-serif;
+    background-color: #76b5c5;
+    color: black;
+}
+
+.content {
+    width: 80%;
+    background-color: aliceblue;
+    margin-left: 10%;
+    border-radius: 30px;
+    height: 80vh;
 }
 
 .title {
+    padding-top: 5%;
+    text-align: center;
+    font-size: 3rem;
     
 }
 
-h2 {
+.available-times-container h2 {
     font-size: 2rem;
 }
 
+.unavailable-times-container h2 {
+    font-size: 2rem;
+}
+
+
+
+/* available times styling */
 .available-times-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     width: auto;
     align-items: center;
+    font-size: 1rem;
 }
-
-.unavailable-times-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
 
 .available-times-container table {
     border-collapse: collapse;
     width: 70%;
+    background-color: #76b5c5;
+    color: white;
 }
   
 .available-times-container table > th, td {
@@ -37,9 +53,41 @@ h2 {
     padding: 8px;
     width: 10%;
     background-color: aliceblue;
+    color:black;
   }
   
 
 .available-times-container table, th, td {
+    border: 1px solid black;
+  }
+
+
+
+/* unavailable times styling */
+.unavailable-times-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.unavailable-times-container table {
+    border-collapse: collapse;
+    width: 40%;
+    background-color: #76b5c5;
+    color: white;
+}
+
+  
+.unavailable-times-container table > th, td {
+    text-align: center;
+    padding: 8px;
+    width: 10%;
+    background-color: aliceblue;
+  }
+
+  
+.unavailable-times-container table, th, td {
     border: 1px solid black;
   }
