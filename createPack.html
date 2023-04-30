@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Group</title>
+</head>
+<body>
+	<h1>Create Group</h1>
+	<label for="email">Email:</label>
+	<input type="email" id="email" name="email">
+	<button type="button" onclick="addEmail()">Add Email</button>
+	<div id="group"></div>
+	<label for="group-name">Group Name:</label>
+	<input type="text" id="group-name" name="group-name">
+	<button type="button" onclick="createGroup()">Create Group</button>
+    <button type="button" onclick="directGroup()">Find your Times!</button>
+
+	<script>
+		// Define an array to store the emails
+		var emails = [];
+
+		// Function to add an email to the array
+		function addEmail() {
+			var email = document.getElementById("email").value;
+			if (validateEmail(email)) {
+				emails.push(email);
+				document.getElementById("email").value = "";
+				updateGroup();
+			} else {
+				alert("Please enter a valid email address.");
+			}
+		}
+
+		// Function to create the group
+		function createGroup() {
+			var groupName = document.getElementById("group-name").value;
+			if (groupName === "") {
+				alert("Please enter a group name.");
+			} else if (emails.length === 0) {
+				alert("Please add at least one email to the group.");
+			} else {
+				var groupList = document.createElement("ul");
+				for (var i = 0; i < emails.length; i++) {
+					var emailListItem = document.createElement("li");
+					emailListItem.textContent = emails[i];
+					groupList.appendChild(emailListItem);
+				}
+				document.getElementById("group").innerHTML = "";
+				document.getElementById("group").appendChild(groupList);
+				alert("Group \"" + groupName + "\" created with " + emails.length + " members.");
+			}
+		}
+
+		// Function to validate an email address
+		function validateEmail(email) {
+			var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			return regex.test(email);
+		}
+
+		// Function to update the group display
+		function updateGroup() {
+			var groupList = document.createElement("ul");
+			for (var i = 0; i < emails.length; i++) {
+				var emailListItem = document.createElement("li");
+				emailListItem.textContent = emails[i];
+				groupList.appendChild(emailListItem);
+			}
+			document.getElementById("group").innerHTML = "";
+			document.getElementById("group").appendChild(groupList);
+		}
+
+        function directGroup(emails){
+            window.location.href = "https://www.henhackshackathon.com/home";
+        }
+	</script>
+</body>
+</html>
