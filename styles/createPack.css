@@ -1,25 +1,55 @@
 body {
     width: auto;
+    font-size: 14px;
     font-family: 'Inter', sans-serif;
+    background-color: #76b5c5;
+    color: black;
+}
+
+.content {
+    width: 80%;
+    background-color:aliceblue;
+    margin-left: 10%;
+    border-radius: 30px;
+    height: 80vh;
+}
+
+.title {
+    padding-top: 5%;
+    text-align: center;
+    font-size: 3rem;
+    border-radius: 30px;
+    background-color: aliceblue;
 }
 
 h1{
     text-align: center;
+    background-color: black;
 }
 
 
 .container-group {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    background-color: blue;
+    padding: 100px 50px;
 }
 
 #container, #containerB {
+    color: white;
     flex-basis: 48%;
+    width: 50%;
 }
+
+#emailListItem {
+    text-decoration: none;
+}
+
 #buttonContainer{
+    background-color: gray;
     display: flex;
     justify-content: center;
-    margin-top: 200px;
     padding: 100px 50px;
     
 }

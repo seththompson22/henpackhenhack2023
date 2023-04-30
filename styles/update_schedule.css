@@ -4,6 +4,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #76b5c5;
     color: black;
+    border-radius: 30px;
 }
 
 .content {
