@@ -1,14 +1,15 @@
 body {
     background-color: #76b5c5;
     text-align: center;
-    width: auto;
+    width: 100vw;
     font-family: 'Inter', sans-serif;
     font-size: 50px;
     color: white;
     left: 0;
     position: absolute;
     top: 15%;
-    width: 100%;
+    width: 99.9%;
+    overflow: hidden;
 }
 
 .button {
@@ -16,6 +17,7 @@ body {
     border: none;
     color: white;
     padding: 15px 32px;
+    border-radius: 13px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -31,4 +33,5 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1px;
+    overflow: hidden;
 }
