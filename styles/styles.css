@@ -11,7 +11,7 @@ body {
     width: 100%;
 }
 
-button {
+.button {
     background-color: rgb(40, 36, 158);
     border: none;
     color: white;
@@ -20,6 +20,11 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
 }
 
 .parent {
