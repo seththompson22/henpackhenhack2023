@@ -17,8 +17,6 @@
     <div class="available-times-container">
         <h2>Available Times</h2>
         <table>
-            <col>
-
             <tr>
                 <th>Monday</th>
                 <th>Tuesday</th>
@@ -42,6 +40,40 @@
     
     <div class="unavailable-times-container">
         <h2>Add Unavailable Times</h2>
+        <table>
+            <tr>
+                <th>Weekday</th>
+                <th>Hour</th>
+                <th>Minute</th>
+                <th>AM/PM</th>
+
+            </tr>
+            <tr class="start-time-row">
+                <td>
+                    <select name="select-day" id="select-day">
+                        <option value=""></option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="number" id="quantity" name="quantity" min="1" max="12">
+                </td>
+                <td>minute</td>
+                <td>am/pm</td>
+            </tr>
+            <tr class="end-time-row">
+                <td>weekday</td>
+                <td>hour</td>
+                <td>minute</td>
+                <td>am/pm</td>
+            </tr>
+        </table>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
