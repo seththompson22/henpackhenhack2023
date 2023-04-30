@@ -27,8 +27,21 @@ body {
 h1{
     text-align: center;
     background-color: black;
+    font-family: 'Inter', sans-serif;
 }
 
+h2 {
+    text-align: center;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-size: 50px;
+    color: forestgreen;
+    left: 0;
+    position: absolute;
+    top: 15%;
+    width: 99.9%;
+    overflow: hidden;
+}
 
 .container-group {
     display: flex;
@@ -81,6 +94,7 @@ h1{
     margin: 10px 0px;
     padding: 7px;
     border-radius: 5px;
+    width: fit-content;
 }
 
 #containerB {
@@ -122,6 +136,10 @@ h1{
 #containerb > .email-list {
     text-decoration: none;
     text-align: left;
+<<<<<<< HEAD
+=======
+    background-color: rgb(29, 217, 238);
+>>>>>>> 96bbc4ef602ec06b509954f66f7e5416d761066e
 }
 
 #containerb > .email-list > .emailListItem {
